@@ -80,14 +80,14 @@ def addContact(name, phones, email, instagram):
 # addContact("testing", [123, 123], "email@something.ru", "@someUser")
 
 """
-- caso nao exista indice avisar. 
-
 A RFC 8398 - https://tools.ietf.org/html/rfc8398
 indica que os enderecos de email são unicos, logo, podem ser usados para indexar como
 identificador unico. Logo facilitando a busca usando o mesmo.
+
+Alterações no documento podem ser encontradas no arquivo contatos.json
 """
 
-
+# classe switcher que recebe argumentos para seus metodos
 class Switcher(object):
     def mod(self, st):
         method_name = st[0]
@@ -96,23 +96,27 @@ class Switcher(object):
         method = getattr(self, method_name, lambda: "use uma das opcoes validas")
         return method(data, payload)
 
+    # nome
     def name(self, data, payload):
 
         data[0] = payload
         res = data
         return data
 
+    # email
     def email(self, data, payload):
 
         data[2] = payload
         res = data
         return data
 
+    # instagram
     def insta(self, data, payload):
         data[3] = payload
         res = data
         return data
 
+    # telefones
     def fones(self, data, payload):
 
         if isinstance(payload, list):
@@ -126,6 +130,9 @@ class Switcher(object):
             return "Telefone espera uma lista como argumento (array)"
 
     pass
+
+
+# atualizar contato
 
 
 def updateContact(target, modifier, payload):
@@ -162,10 +169,10 @@ pass
 
 
 # lista passada do frontend para o backend
-listaAtual = ["testing", [123, 123], "mail@something.ru", "@someUser"]
+listaAtual = ["testing", [123, 123], "email@something.ru", "@someUser"]
 
 # nome
-updateContact(listaAtual, "name", "TESTEEEE")
+# updateContact(listaAtual, "name", "TESTEEEE")
 
 # email
 # updateContact(listaAtual, "email", "t@t.com")
