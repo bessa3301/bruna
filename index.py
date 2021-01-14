@@ -93,17 +93,26 @@ class Switcher(object):
     def mod(self, st):
         method_name = st[0]
         data = st[1]
+        payload = st[2]
         method = getattr(self, method_name, lambda: "use uma das opcoes validas")
-        return method(data)
+        return method(data, payload)
 
-    def name(self, data):
+    def name(self, data, payload):
+
+        data[0] = payload
+        res = data
         return data
 
-    def email(self):
-        return "email works"
+    def email(self, data, payload):
 
-    def insta(self):
-        return "insta works"
+        data[2] = payload
+        res = data
+        return data
+
+    def insta(self, data, payload):
+        data[2] = payload
+        res = data
+        return data
 
     def fones(self):
         return "fones works"
@@ -125,7 +134,7 @@ def updateContact(target, modifier, payload):
 
             # switch para nome,fones,email,insta
             s = Switcher()
-            print(s.mod(["name", p]))
+            print(s.mod([modifier, p, payload]))
 
             pass
         pass
