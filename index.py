@@ -83,11 +83,6 @@ def addContact(name, phones, email, instagram):
 - telefone: caso ja exista = remover, else adicionar. 
 - caso nao exista indice avisar. 
 
-nome
-fones
-email
-insta
-
 A RFC 8398 - https://tools.ietf.org/html/rfc8398
 indica que os enderecos de email são unicos, logo, podem ser usados para indexar como
 identificador unico. Logo facilitando a busca usando o mesmo.
@@ -96,19 +91,28 @@ identificador unico. Logo facilitando a busca usando o mesmo.
 
 def updateContact(target, modifier, payload):
 
-    sucess-status = false
+    sucess_status = bool(False)
     name = target[0]
     email = target[2]
     insta = target[3]
 
-    for tovarish in contatos:
+    # ciclar por cada contato em contatos
+    for p in contatos:
 
+        # encontrar usuario usando email
+        if p[2] == email:
+            print(p)
+
+            # switch para nome,fones,email,insta
+
+            pass
         pass
 
-    print(f"works")
+    # print(f"works")
     pass
+
 
 # lista passada do frontend para o backend
 listaAtual = ["testing", [123, 123], "email@something.ru", "@someUser"]
 
-def(listaAtual,'name','testUpdate')
+updateContact(listaAtual, "name", "testUpdate")
