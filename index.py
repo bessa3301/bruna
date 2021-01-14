@@ -90,16 +90,14 @@ identificador unico. Logo facilitando a busca usando o mesmo.
 
 
 class Switcher(object):
-    def mod(self, st, ppp):
-        method_name = st
+    def mod(self, st):
+        method_name = st[0]
+        data = st[1]
+        method = getattr(self, method_name, lambda: "use uma das opcoes validas")
+        return method(data)
 
-        print(method_name)
-
-        method = getattr(self, st, lambda: "use uma das opcoes validas")
-        return method()
-
-    def name(self):
-        return obj
+    def name(self, data):
+        return data
 
     def email(self):
         return "email works"
@@ -127,7 +125,7 @@ def updateContact(target, modifier, payload):
 
             # switch para nome,fones,email,insta
             s = Switcher()
-            print(s.mod("nome", 123))
+            print(s.mod(["name", p]))
 
             pass
         pass
