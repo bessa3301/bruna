@@ -77,4 +77,26 @@ def addContact(name, phones, email, instagram):
     pass
 
 
-addContact("testing", [123, 123], "email@something.ru", "@someUser")
+# addContact("testing", [123, 123], "email@something.ru", "@someUser")
+
+"""
+- Só e permitido atualizar uma informação por function call.
+- è passado a lista atual para busca, e a informação nova. 
+- salvar na memoria informacoes [ nome , email , instagram ].
+- telefone: caso ja exista = remover, else adicionar. 
+- caso nao exista indice avisar. 
+- funcao deve retornar boolean se a operação foi bem sucedida ou não
+
+nome
+fones
+email
+insta
+
+"""
+
+listaAtual = ["testing", [123, 123], "email@something.ru", "@someUser"]
+
+
+def updateContact(target, payload):
+
+    pass
