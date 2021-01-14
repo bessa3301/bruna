@@ -80,23 +80,35 @@ def addContact(name, phones, email, instagram):
 # addContact("testing", [123, 123], "email@something.ru", "@someUser")
 
 """
-- Só e permitido atualizar uma informação por function call.
-- è passado a lista atual para busca, e a informação nova. 
-- salvar na memoria informacoes [ nome , email , instagram ].
 - telefone: caso ja exista = remover, else adicionar. 
 - caso nao exista indice avisar. 
-- funcao deve retornar boolean se a operação foi bem sucedida ou não
 
 nome
 fones
 email
 insta
 
+A RFC 8398 - https://tools.ietf.org/html/rfc8398
+indica que os enderecos de email são unicos, logo, podem ser usados para indexar como
+identificador unico. Logo facilitando a busca usando o mesmo.
 """
 
+
+def updateContact(target, modifier, payload):
+
+    sucess-status = false
+    name = target[0]
+    email = target[2]
+    insta = target[3]
+
+    for tovarish in contatos:
+
+        pass
+
+    print(f"works")
+    pass
+
+# lista passada do frontend para o backend
 listaAtual = ["testing", [123, 123], "email@something.ru", "@someUser"]
 
-
-def updateContact(target, payload):
-
-    pass
+def(listaAtual,'name','testUpdate')
