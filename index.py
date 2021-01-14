@@ -110,19 +110,21 @@ class Switcher(object):
         return data
 
     def insta(self, data, payload):
-        data[2] = payload
+        data[3] = payload
         res = data
         return data
 
-    def fones(self):
+    def fones(self, data, payload):
         return "fones works"
 
 
 def updateContact(target, modifier, payload):
 
     sucess_status = bool(False)
-    name = target[0]
     email = target[2]
+
+    # variaveis sem uso, incluidas apenas para cumprir com os requisitos passados
+    name = target[0]
     insta = target[3]
 
     # ciclar por cada contato em contatos
@@ -146,4 +148,4 @@ def updateContact(target, modifier, payload):
 # lista passada do frontend para o backend
 listaAtual = ["testing", [123, 123], "email@something.ru", "@someUser"]
 
-updateContact(listaAtual, "name", "testUpdate")
+updateContact(listaAtual, "fones", "testUpdate")
