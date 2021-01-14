@@ -16,8 +16,20 @@ def saveToJson(data):
     Salva os dados no arquivo.
     """
 
+    # Lendo informacoes
+    with open("contatos.json", "r+") as arquivo:
+        dic = json.load(arquivo)
+        dic.append(data)
+        arquivo.seek(0)
+        json.dump(dic, arquivo)
+
+    # limpando infos nao necessarias para proxima operacao
     with open("contatos.json", "w") as arquivo:
-        json.dump(data, arquivo)
+        json.dump("", arquivo)
+
+    # adicionando novos dados
+    with open("contatos.json", "r+") as arquivo:
+        json.dump(dic, arquivo)
 
     pass
 
