@@ -89,6 +89,28 @@ identificador unico. Logo facilitando a busca usando o mesmo.
 """
 
 
+class Switcher(object):
+    def mod(self, st, ppp):
+        method_name = st
+
+        print(method_name)
+
+        method = getattr(self, st, lambda: "use uma das opcoes validas")
+        return method()
+
+    def name(self):
+        return obj
+
+    def email(self):
+        return "email works"
+
+    def insta(self):
+        return "insta works"
+
+    def fones(self):
+        return "fones works"
+
+
 def updateContact(target, modifier, payload):
 
     sucess_status = bool(False)
@@ -101,9 +123,11 @@ def updateContact(target, modifier, payload):
 
         # encontrar usuario usando email
         if p[2] == email:
-            print(p)
+            # print(p)
 
             # switch para nome,fones,email,insta
+            s = Switcher()
+            print(s.mod("nome", 123))
 
             pass
         pass
