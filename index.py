@@ -127,25 +127,32 @@ def updateContact(target, modifier, payload):
     name = target[0]
     insta = target[3]
 
-    # ciclar por cada contato em contatos
-    for p in contatos:
-
-        # encontrar usuario usando email
-        if p[2] == email:
-            # print(p)
-
-            # switch para nome,fones,email,insta
-            s = Switcher()
-            print(s.mod([modifier, p, payload]))
-
-            pass
+    # prevenir erros com fone
+    if modifier == "fones" and isinstance(payload, list):
+        print("xx works")
         pass
+    else:
 
-    # print(f"works")
+        # ciclar por cada contato em contatos
+        for p in contatos:
+
+            # encontrar usuario usando email
+            if p[2] == email:
+                # print(p)
+
+                # switch para nome,fones,email,insta
+                s = Switcher()
+                print(s.mod([modifier, p, payload]))
+
+                pass
+            pass
+
+        # print(f"works")
+        pass
     pass
 
 
 # lista passada do frontend para o backend
 listaAtual = ["testing", [123, 123], "email@something.ru", "@someUser"]
 
-updateContact(listaAtual, "fones", "testUpdate")
+updateContact(listaAtual, "fones", [123, 123])
