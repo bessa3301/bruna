@@ -133,8 +133,34 @@ class Switcher(object):
 
 
 # atualizar json
-def updateJson(data):
-    pass
+def updateJson(data, p):
+
+    """
+    Recebe os dados de updateContact.
+    Mantem as convencoes SOLID para qualidade de codigo.
+    !! Remove o registro existente.
+    Salva os dados novos no arquivo.
+    """
+
+    # Lendo informacoes
+    with open("contatos.json", "r+") as arquivo:
+        dic = json.load(arquivo)
+        #@!
+        dic.pop(p)
+        dic.append(data)
+        arquivo.seek(0)
+        json.dump(dic, arquivo)
+
+    # limpando infos nao necessarias para proxima operacao
+    with open("contatos.json", "w") as arquivo:
+        json.dump("", arquivo)
+
+    # adicionando novos dados
+    with open("contatos.json", "r+") as arquivo:
+        json.dump(dic, arquivo)
+
+
+pass
 
 
 # atualizar contato
@@ -148,6 +174,7 @@ def updateContact(target, modifier, payload):
     insta = target[3]
 
     foundState = False
+    positionInArray = 0
 
     # ciclar por cada contato em contatos
     for p in contatos:
@@ -161,9 +188,10 @@ def updateContact(target, modifier, payload):
             s = Switcher()
             # retornando para o usuario o que a funcao retornou
             data = s.mod([modifier, p, payload])
+            updateJson(data, positionInArray)
             print(data)
-
         pass
+        positionInArray = positionInArray + 1
     pass
 
     # chamando statement fora do loop para economizar memoria
