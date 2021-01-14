@@ -9,6 +9,13 @@
 <br>
 <br>
 
+# Aviso:
+
+leia os comentarios dentro do codigo para entender o funcionamento e como ultilizar as funcoes! 
+Dazvidania I na'zdrovia tovarish
+
+:D
+
 # Objetivo:
 
 Voce e um dos desenvolvedores do "contatinhosAPP" que desenvolvera funcoes que interagem com o frontend proposto;
@@ -29,10 +36,10 @@ Estrutura existente:
 | 2 | email |
 | 3 | instagram |
 
-- [ ] criar novo contato; 
+- [x] criar novo contato; 
 > sua funcao deve criar um novo contato, e retornar o mesmo. deve receber os 4 parametros acima. telefones devem estar dentro de um array. nome nao pode ser vazio.
 
-- [ ] atualizar informações de um contato; 
+- [x] atualizar informações de um contato; 
 > Só e permitido atualizar uma informação por function call. è passado a lista atual para busca, e a informação nova. salvar na memoria informacoes [ nome , email , instagram ]. telefone: caso ja exista = remover, else adicionar. caso nao exista indice avisar. funcao deve retornar boolean se a operação foi bem sucedida ou não
 
 ### Python version 3.8x
