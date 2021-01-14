@@ -32,8 +32,7 @@ Estrutura existente:
 - [ ] criar novo contato; 
 > sua funcao deve criar um novo contato, e retornar o mesmo. deve receber os 4 parametros acima. telefones devem estar dentro de um array. nome nao pode ser vazio.
 
-
 - [ ] atualizar informações de um contato; 
-
+> Só e permitido atualizar uma informação por function call. è passado a lista atual para busca, e a informação nova. salvar na memoria informacoes [ nome , email , instagram ]. telefone: caso ja exista = remover, else adicionar. caso nao exista indice avisar. funcao deve retornar boolean se a operação foi bem sucedida ou não
 
 ### Python version 3.8x
