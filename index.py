@@ -115,7 +115,13 @@ class Switcher(object):
         return data
 
     def fones(self, data, payload):
-        return "fones works"
+
+        if isinstance(payload, list):
+            return "okidoki"
+        else:
+            return "Telefone espera uma lista como argumento (array)"
+
+    pass
 
 
 def updateContact(target, modifier, payload):
@@ -127,27 +133,16 @@ def updateContact(target, modifier, payload):
     name = target[0]
     insta = target[3]
 
-    # prevenir erros com fone
-    if modifier == "fones" and isinstance(payload, list):
-        print("xx works")
-        pass
-    else:
+    # ciclar por cada contato em contatos
+    for p in contatos:
 
-        # ciclar por cada contato em contatos
-        for p in contatos:
+        # encontrar usuario usando email
+        if p[2] == email:
+            # print(p)
 
-            # encontrar usuario usando email
-            if p[2] == email:
-                # print(p)
-
-                # switch para nome,fones,email,insta
-                s = Switcher()
-                print(s.mod([modifier, p, payload]))
-
-                pass
-            pass
-
-        # print(f"works")
+            # switch para nome,fones,email,insta
+            s = Switcher()
+            print(s.mod([modifier, p, payload]))
         pass
     pass
 
