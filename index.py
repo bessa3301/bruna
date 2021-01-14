@@ -8,39 +8,46 @@ with open("contatos.json") as contatos_arquivo:
 # Contatos dentro do arquivo .json
 # print(contatos)
 
+
 """
-> sua funcao deve criar um novo contato, e retornar o mesmo. 
-
-| 0 | nome |
-| 1 | lista de telefones |
-| 2 | email |
-| 3 | instagram |
-
-x deve receber os 4 parametros acima. 
-> telefones devem estar dentro de um array. 
-> nome nao pode ser vazio.
+adicionar contatos.
+nome nao estar vazio.
+telefones devem ser contidos em um array.
 """
 
 
 def addContact(name, phones, email, instagram):
 
     # checando se nome esta vazio
-    if name == "" or name == null or name == undefined:
+    if name == "":
         print(f"nome nao pode estar vazio dumass")
         pass
     else:
 
-        # telefones dentro de uma lista
+        # objeto sendo tratado
+        data = []
+
+        # adicionando nome
+        data.append(name)
+
+        # adicionando telefone para cada telefone passado dentro do array
         data_telefone = []
 
         for phone in phones:
-            data_telefone.append()
+            data_telefone.append(phone)
             pass
 
-        print("works")
+        # adicionando telefone ao objeto data
+        data.append(data_telefone)
+
+        # adicionando email e usuario do instagram
+        data.append(email)
+        data.append(instagram)
+
+        print(data)
         pass
 
     pass
 
 
-addContact("", [123, 123], "", "")
+addContact("fucker", [123, 123], "email", "@fuck")
