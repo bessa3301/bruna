@@ -80,7 +80,6 @@ def addContact(name, phones, email, instagram):
 # addContact("testing", [123, 123], "email@something.ru", "@someUser")
 
 """
-- telefone: caso ja exista = remover, else adicionar. 
 - caso nao exista indice avisar. 
 
 A RFC 8398 - https://tools.ietf.org/html/rfc8398
@@ -138,12 +137,15 @@ def updateContact(target, modifier, payload):
     name = target[0]
     insta = target[3]
 
+    foundState = False
+
     # ciclar por cada contato em contatos
     for p in contatos:
 
         # encontrar usuario usando email
         if p[2] == email:
             # print(p)
+            foundState = True
 
             # switch para nome,fones,email,insta
             s = Switcher()
@@ -151,8 +153,25 @@ def updateContact(target, modifier, payload):
         pass
     pass
 
+    # chamando statement fora do loop para economizar memoria
+    if foundState != True:
+        print(f"Usuario Não Encontrado")
+
+
+pass
+
 
 # lista passada do frontend para o backend
-listaAtual = ["testing", [123, 123], "email@something.ru", "@someUser"]
+listaAtual = ["testing", [123, 123], "mail@something.ru", "@someUser"]
 
-updateContact(listaAtual, "fones", [123323, 123])
+# nome
+updateContact(listaAtual, "name", "TESTEEEE")
+
+# email
+# updateContact(listaAtual, "email", "t@t.com")
+
+# fones
+# updateContact(listaAtual, "fones", [12312, 51723])
+
+# insta
+# updateContact(listaAtual, "insta", "@test")
