@@ -117,7 +117,12 @@ class Switcher(object):
     def fones(self, data, payload):
 
         if isinstance(payload, list):
-            return "okidoki"
+
+            # esta parte e mais complexa, aqui estou comparando simetricamente a diferenca entre
+            # dois SETS e retornando os valores que nao são iguais.
+            data[1] = list(set(payload).symmetric_difference(set(data[1])))
+            return data
+
         else:
             return "Telefone espera uma lista como argumento (array)"
 
@@ -150,4 +155,4 @@ def updateContact(target, modifier, payload):
 # lista passada do frontend para o backend
 listaAtual = ["testing", [123, 123], "email@something.ru", "@someUser"]
 
-updateContact(listaAtual, "fones", [123, 123])
+updateContact(listaAtual, "fones", [123323, 123])
