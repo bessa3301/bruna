@@ -9,6 +9,19 @@ with open("contatos.json") as contatos_arquivo:
 # print(contatos)
 
 
+def saveToJson(data):
+    """
+    Recebe os dados de addContact.
+    Mantem as convencoes SOLID para qualidade de codigo.
+    Salva os dados no arquivo.
+    """
+
+    with open("contatos.json", "w") as arquivo:
+        json.dump(data, arquivo)
+
+    pass
+
+
 """
 adicionar contatos.
 nome nao estar vazio.
@@ -44,10 +57,12 @@ def addContact(name, phones, email, instagram):
         data.append(email)
         data.append(instagram)
 
+        saveToJson(data)
+
         print(data)
         pass
 
     pass
 
 
-addContact("fucker", [123, 123], "email", "@fuck")
+addContact("testing", [123, 123], "email@something.ru", "@someUser")
