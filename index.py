@@ -35,9 +35,10 @@ def saveToJson(data):
 
 
 """
-adicionar contatos.
-nome nao estar vazio.
-telefones devem ser contidos em um array.
+Como adicionar contatos?
+
+- Escolha um nome, array de telefones, email e instagram
+- chame a funcao addContact com os parametros nessa ordem
 """
 
 
@@ -77,6 +78,7 @@ def addContact(name, phones, email, instagram):
     pass
 
 
+# exemplo adicionar contato:
 # addContact("testing", [123, 123], "email@something.ru", "@someUser")
 
 """
@@ -145,7 +147,7 @@ def updateJson(data, p):
     # Lendo informacoes
     with open("contatos.json", "r+") as arquivo:
         dic = json.load(arquivo)
-        #@!
+        # @!
         dic.pop(p)
         dic.append(data)
         arquivo.seek(0)
@@ -202,17 +204,27 @@ def updateContact(target, modifier, payload):
 pass
 
 
+"""
+Como atualizar dados?
+
+- popule o objeto suaLista com os dados do cliente que gostaria de editar
+- use as funcoes abaixo, removendo o comentario, ja que elas ja comtem os parametros.
+"""
+
+
 # lista passada do frontend para o backend
-listaAtual = ["testing", [123, 123], "email@something.ru", "@someUser"]
+# EXEMPLO:
+# listaAtual = ["testing", [123, 123], "t@t.com", "@someUser"]
+suaLista = ["nome", [12, 34], "a@b.ru", "@algo"]
 
-# nome
-updateContact(listaAtual, "name", "TESTEEEE")
+# atualizar nome
+# updateContact(listaAtual, "name", "escolha um nome")
 
-# email
-# updateContact(listaAtual, "email", "t@t.com")
+# atualizar email
+# updateContact(listaAtual, "email", "email@exemplo.com")
 
-# fones
-# updateContact(listaAtual, "fones", [12312, 51723])
+# atualizar fones
+# updateContact(listaAtual, "fones", [123, 456])
 
-# insta
-# updateContact(listaAtual, "insta", "@test")
+# atualizar insta
+# updateContact(listaAtual, "insta", "@exemplo")
