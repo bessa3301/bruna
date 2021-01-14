@@ -132,9 +132,12 @@ class Switcher(object):
     pass
 
 
+# atualizar json
+def updateJson(data):
+    pass
+
+
 # atualizar contato
-
-
 def updateContact(target, modifier, payload):
 
     sucess_status = bool(False)
@@ -156,7 +159,10 @@ def updateContact(target, modifier, payload):
 
             # switch para nome,fones,email,insta
             s = Switcher()
-            print(s.mod([modifier, p, payload]))
+            # retornando para o usuario o que a funcao retornou
+            data = s.mod([modifier, p, payload])
+            print(data)
+
         pass
     pass
 
@@ -172,7 +178,7 @@ pass
 listaAtual = ["testing", [123, 123], "email@something.ru", "@someUser"]
 
 # nome
-# updateContact(listaAtual, "name", "TESTEEEE")
+updateContact(listaAtual, "name", "TESTEEEE")
 
 # email
 # updateContact(listaAtual, "email", "t@t.com")
